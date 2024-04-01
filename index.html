@@ -1,132 +1,35 @@
-	<!-- ----------------------------------------------------------------------------------------------------
-		1)Форма та події: Перевірка пароля
-		Задача: Створи HTML-форму з полями для введення пароля та підтвердження пароля. 
-		Використай JavaScript для перевірки, чи паролі співпадають при втраті фокусу з другого поля. 
-		Якщо вони не співпадають, виведи повідомлення про помилку. -->
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		
+		<iframe src="exercise-1.html" width="600" height="400"></iframe>
+		<iframe src="exercise-2.html" width="600" height="400"></iframe>
+		<iframe src="exercise-3.html" width="600" height="400"></iframe>
+
+	</head>
+	<body>
+		
+	</body>
+	</html>
+	
+
+
+	
+
+
+
 <!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-	<style>
-		* {
-			font-size: large;
-			margin: 10px;
-		}
-		.correct-pwd {
-			color: red;
-			display: none;
-		}
-		.passwords {
-			display: flex;
-			justify-content: space-between;
-			width: 400px;
-		}
-	</style>
-<body>
-	<form action="">
-		<div class="passwords">
-			<label for="pwd" class="label-pwd">Enter the password: </label>
-			<input type="text" name="pwd" id="pwd" placeholder="password">
-		</div>
-		<div class="passwords">
-			<label for="pwd-confirm" class="label-pwd-confirm">Repeat enter the password: </label>
-			<input type="text" name="pwd-confirm" id="pwd-confirm" placeholder="confirm password">
-		</div>
-		<p class="correct-pwd">Error! The passwords are not the same.</p>
-	</form>
-
-	<script>
-		let pwd = document.querySelector('#pwd');
-		let pwd_confirm = document.querySelector('#pwd-confirm');
-		let correct_pwd = document.querySelector('.correct-pwd');
-
-		function checkPwd(){
-			if (pwd.value === pwd_confirm.value) correct_pwd.style.display = 'none';
-			else correct_pwd.style.display = 'block';
-		}
-
-		pwd_confirm.addEventitemener('focusout', checkPwd);
-	</script>
-</body>
-</html> -->
-
-
-
-
-
-	<!-- ----------------------------------------------------------------------------------------------------
-		2)Список та події: Додавання та видалення елементів у списку
-
-		Задача: Створи HTML-сторінку зі списком елементів. 
-		Додай можливість додавати нові елементи у список за допомогою введення тексту в поле 
-		та натискання на кнопку "Додати". 
-		Також реалізуй можливість видаляти елементи списку при їхньому виборі. -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<style>
-		* {
-			font-size: 1.3rem;
-		}
-		li:hover {
-			font-weight: bold;
-		}
-
-	</style>
-</head>
-<body>
-		<label for="input-text"></label>
-		<input type="text" name="input-text" id="input-text" placeholder="Enter the text...">
-		<button id="btn" onclick="AddItem()">  Add  </button>
-
-		<ul>
-			<li class="item-1">item-1</li>
-			<li class="item-2">item-2</li>
-			<li class="item-3">item-3</li>
-			<li class="item-4">item-4</li>
-			<li class="item-5">item-5</li>
-		</ul>
-
-		<script>
-			let ul = document.querySelector('ul');
-			function AddItem(){			
-				let input_value = document.querySelector('#input-text').value;
-				let li = document.createElement('li');
-				li.textContent = input_value;
-				ul.appendChild(li);
-			}
-
-			document.addEventListener('click', function(event){
-				let target = event.target;
-				if (target.tagName !== 'LI') return;
-				target.parentNode.removeChild(target);
-			});
-		</script>
-</body>
-</html> -->
-
-
-
-
-
-
-
-
-<!-- ----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 	3)DOM та події: Переміщення елементів списку
 
 Задача: Створи сторінку зі списком елементів. 
 Дозволь користувачеві переміщати елементи вгору та вниз в межах списку 
 за допомогою кнопок "Вгору" та "Вниз". 
-Використовуй події click для обробки кліків на кнопки та JavaScript для зміни порядку елементів у списку. -->
+Використовуй події click для обробки кліків на кнопки та JavaScript для зміни порядку елементів у списку. 
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -136,6 +39,6 @@
 	<title>Document</title>
 </head>
 <body>
-	<p>dsf</p>
+	<p>ddfsdfsdfsdfsf</p>
 </body>
 </html>

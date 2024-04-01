@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+	<style>
+		li {
+			font-size: 1.4rem;
+			list-style-type: none;
+		}
+		li:hover {
+			display: inline-block;
+			font-weight: bold;
+			border: 1px solid red;
+			cursor: pointer;
+		}
+		.selected {
+			color: red;
+		}
+	</style>
+<body>
+	<ul>
+		<li class="item-1">item-1</li>
+		<li class="item-2">item-2</li>
+		<li class="item-3">item-3</li>
+		<li class="item-4">item-4</li>
+		<li class="item-5">item-5</li>
+	</ul>
+</body>
+	<script>
+		let ul = document.querySelector('ul');
+		let li = document.querySelectorAll('li');
+		document.addEventListener('click', function(event){
+			let target = event.target;
+			if (target.tagName !== 'LI') return;
+	
+			li.forEach(item => item.classList.remove('selected'))
+			target.classList.add('selected');
+		});
+
+		function getPosition(){
+			for (let i=0; i<li.length; i++)
+					if (li[i].classList.contains('selected'))
+						return i;
+			return -1;
+		}
+
+		function moveItem(event){
+			let pos = getPosition();
+			if (pos === -1) return;
+
+			if (event.key == 'ArrowUp' && pos > 0)
+				 li[pos].parentNode.insertBefore(li[pos],li[pos-1]);
+			else
+			if (event.key == 'ArrowDown' && pos < li.length - 1) {
+				li[pos].parentNode.insertBefore(li[pos+1],li[pos]);
+			}
+			else return;
+		}
+
+		document.addEventListener('keydown', moveItem);
+	</script>
+</html>

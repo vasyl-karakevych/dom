@@ -1,0 +1,63 @@
+<!-- 
+		2)Список та події: Додавання та видалення елементів у списку
+		Задача: Створи HTML-сторінку зі списком елементів. 
+		Додай можливість додавати нові елементи у список за допомогою введення тексту в поле 
+		та натискання на кнопку "Додати". 
+		Також реалізуй можливість видаляти елементи списку при їхньому виборі. 
+	-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			font-size: large;
+		}
+		li {
+			font-size: 1.4rem;
+		}
+		li:hover {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<p>2)Список та події: Додавання та видалення елементів у списку
+		Задача: Створи HTML-сторінку зі списком елементів. 
+		Додай можливість додавати нові елементи у список за допомогою введення тексту в поле 
+		та натискання на кнопку "Додати". 
+		Також реалізуй можливість видаляти елементи списку при їхньому виборі. </p>
+		<label for="input-text"></label>
+		<input type="text" name="input-text" id="input-text" placeholder="Enter the text...">
+		<button id="btn" onclick="AddItem()">  Add  </button>
+
+		<ul>
+			<li class="item-1">item-1</li>
+			<li class="item-2">item-2</li>
+			<li class="item-3">item-3</li>
+			<li class="item-4">item-4</li>
+			<li class="item-5">item-5</li>
+		</ul>
+
+		<script>
+			let ul = document.querySelector('ul');
+			function AddItem(){			
+				let input_value = document.querySelector('#input-text');
+				if (!input_value.value) return;
+				let li = document.createElement('li');
+				li.textContent = input_value.value;
+				ul.appendChild(li);
+				input_value.value = '';
+			}
+			document.addEventListener('click', function(event){
+				let target = event.target;
+				if (target.tagName !== 'LI') return;
+				target.parentNode.removeChild(target);
+			});
+		</script>
+</body>
+</html> 

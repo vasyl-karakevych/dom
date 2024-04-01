@@ -1,0 +1,60 @@
+<!-- 
+	----------------------------------------------------------------------------------------------------
+		1)Форма та події: Перевірка пароля
+		Задача: Створи HTML-форму з полями для введення пароля та підтвердження пароля. 
+		Використай JavaScript для перевірки, чи паролі співпадають при втраті фокусу з другого поля. 
+		Якщо вони не співпадають, виведи повідомлення про помилку. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+	<style>
+		* {
+			font-size: large;
+			margin: 10px;
+		}
+		.correct-pwd {
+			color: red;
+			display: none;
+		}
+		.passwords {
+			display: flex;
+			justify-content: space-between;
+			width: 400px;
+		}
+	</style>
+<body>
+	<p>1) Форма та події: Перевірка пароля
+		Задача: Створи HTML-форму з полями для введення пароля та підтвердження пароля. 
+		Використай JavaScript для перевірки, чи паролі співпадають при втраті фокусу з другого поля. 
+		Якщо вони не співпадають, виведи повідомлення про помилку.</p>
+	<form action="">
+		<div class="passwords">
+			<label for="pwd" class="label-pwd">Enter the password: </label>
+			<input type="text" name="pwd" id="pwd" placeholder="password">
+		</div>
+		<div class="passwords">
+			<label for="pwd-confirm" class="label-pwd-confirm">Repeat enter the password: </label>
+			<input type="text" name="pwd-confirm" id="pwd-confirm" placeholder="confirm password">
+		</div>
+		<p class="correct-pwd">Error! The passwords are not the same.</p>
+	</form>
+
+	<script>
+		let pwd = document.querySelector('#pwd');
+		let pwd_confirm = document.querySelector('#pwd-confirm');
+		let correct_pwd = document.querySelector('.correct-pwd');
+
+		function checkPwd(){
+			if (pwd.value === pwd_confirm.value) correct_pwd.style.display = 'none';
+			else correct_pwd.style.display = 'block';
+		}
+
+		pwd_confirm.addEventListener('focusout', checkPwd);
+	</script>
+</body>
+</html> 
