@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			font-size: large;
+		}
+		li {
+			font-size: 1.2rem;
+			list-style-type: none;
+		}
+		button.btn-remove {
+			border: 1px solid black;
+			background-color: red;
+			padding: 0px;
+			height: 20px;
+			width: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p>5)DOM та події: Додавання елементів через форму
+		Задача: Створи сторінку зі списком елементів та формою для додавання нового елемента. 
+		При введенні тексту у форму та натисканні кнопки "Додати", новий елемент повинен додаватися 
+		до списку. Використовуй подію submit для форми та JavaScript для створення нового елемента 
+		та додавання його до списку.</p>
+	
+	<form action="form" id="form">
+		<label for="text">Enter the text</label>
+		<input type="text" name="text" id="text">
+		<button type="submit">Add</button>
+
+		<ul class="list">
+			<li>asdfasdfasdf</li>
+		</ul>
+
+		
+	</form>
+
+	<script>
+		document.getElementById('form').addEventListener('submit', function(event) {
+			event.preventDefault();
+			
+			let li = document.createElement('li');
+			
+			let text = document.querySelector('#text');
+			let list = document.querySelector('.list');
+			
+			if (text.value == '') return;
+
+			li.innerHTML = text.value;
+			text.value = '';
+			list.appendChild(li);
+		});
+
+
+
+		document.addEventListener('mouseover', function(event){
+			if (event.target.tagName != 'LI' || document.querySelector('.btn-remove')) return;
+	
+			let btn_close = document.createElement('button');
+			btn_close.classList.add('btn-remove');
+			btn_close.textContent = 'x';
+			event.target.appendChild(btn_close);
+		});
+
+		let timeID;
+		document.addEventListener('mouseout', function(event){
+			if (event.target.tagName != 'LI') return;
+
+			let btn_close = document.querySelector('.btn-remove');
+			timeID = setTimeout(() => event.target.removeChild(btn_close), 100);
+		});
+
+
+		document.addEventListener('mouseover', function(event){
+			if (!event.target.classList.contains('btn-remove')) return;
+
+			clearTimeout(timeID);
+			event.target.style.fontWeight = 'bold';
+		});
+
+
+		
+		document.addEventListener('click', function(event){
+			if (event.target.tagName === 'button')  removeItem();
+		});
+
+		
+		function removeItem(event){
+
+		}
+
+	</script>
+</body>
+</html>
