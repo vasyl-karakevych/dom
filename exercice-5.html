@@ -60,7 +60,7 @@
 			list.appendChild(li);
 		});
 
-		document.addEventListener('mouseover', function(event){
+		document.addEventListener('mousemove', function(event){
 			if (event.target.tagName === 'LI') addBtn(event);
 			if (event.target.classList.contains('btn-remove')) onBtnHover(event);
 		});
