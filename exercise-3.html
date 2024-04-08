@@ -6,6 +6,9 @@
 	<title>Document</title>
 </head>
 	<style>
+		* {
+			font-size: large;
+		}
 		li {
 			font-size: 1.4rem;
 			list-style-type: none;
@@ -21,6 +24,10 @@
 		}
 	</style>
 <body>
+	<p>3)DOM та події: Переміщення елементів списку
+		Задача: Створи сторінку зі списком елементів. Дозволь користувачеві переміщати елементи вгору 
+		та вниз в межах списку за допомогою кнопок "Вгору" та "Вниз". Використовуй події click 
+		для обробки кліків на кнопки та JavaScript для зміни порядку елементів у списку.</p>
 	<ul>
 		<li class="item-1">item-1</li>
 		<li class="item-2">item-2</li>
@@ -32,18 +39,17 @@
 	<script>
 		let ul = document.querySelector('ul');
 		let li = document.querySelectorAll('li');
-		document.addEventListener('click', function(event){
+		ul.addEventListener('click', function(event){
 			let target = event.target;
 			if (target.tagName !== 'LI') return;
-	
-			li.forEach(item => item.classList.remove('selected'))
+			li.forEach(item => item.classList.remove('selected'));
 			target.classList.add('selected');
 		});
 
 		function getPosition(){
 			for (let i=0; i<li.length; i++)
 					if (li[i].classList.contains('selected'))
-						return i;
+							return i;
 			return -1;
 		}
 
@@ -57,9 +63,9 @@
 			if (event.key == 'ArrowDown' && pos < li.length - 1) {
 				li[pos].parentNode.insertBefore(li[pos+1],li[pos]);
 			}
-			else return;
+			
+			li = document.querySelectorAll('li');
 		}
-
 		document.addEventListener('keydown', moveItem);
 	</script>
 </html>

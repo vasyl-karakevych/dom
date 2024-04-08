@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		* {
+			font-size: large;
+		}
+		.list-none {
+			display: none;
+		}
+		li {
+			font-size: 1.2rem;
+		}
+		div {
+			padding-left: 35%;
+
+		}
+		div > button {
+			color: red;
+			width: 150px;
+			height: 40px;
+		}
+
+	</style>
+
+	<p>4)DOM та події: Розгортання/Згортання списку
+		Задача: Створи сторінку, на якій є список елементів та кнопка "Показати/Приховати". 
+		При кліці на кнопку розгортай або згортай список. Використовуй подію click для обробки кліку 
+		на кнопку та JavaScript для додавання або видалення класу, який регулює відображення списку 
+		(display: none або display: block).</p>
+	
+	<div>
+		<button id="btn">Приховати</button>
+		<ol class="list">
+			<li class="items">м.Новояворівськ</li>
+			<li class="items">с-ще Шкло</li>
+			<li class="items">м.Львів</li>
+			<li class="items">м.Київ</li>
+			<li class="items">с.Терновиця</li>
+			<li class="items">с.Бердихів</li>
+			<li class="items">м.Янів</li>
+		</ol>
+	</div>
+
+
+	<script>
+		let btn = document.getElementById('btn');
+		btn.onclick =  function(){
+			let li = document.querySelectorAll('LI');
+
+			li.forEach((item, index) => {	
+					setTimeout(() => {
+						if (item.classList.contains('list-none'))
+								item.classList.remove('list-none');	
+						else
+							item.classList.add('list-none');	
+					}, index*20);	
+
+				});
+			
+			if (btn.textContent === 'Показати')
+				btn.textContent = 'Приховати';
+			else btn.textContent = 'Показати';
+			
+		}
+	</script>
+</body>
+</html>
